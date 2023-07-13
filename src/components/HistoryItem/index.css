@@ -15,8 +15,11 @@
 .button{
     border:0px;
     background-color:#ffffff;
-    align-items: flex-end;
+    
 }
 .domainUrl{
+    margin-bottom:15px;
+}
+.title{
     margin-bottom:10px;
 }

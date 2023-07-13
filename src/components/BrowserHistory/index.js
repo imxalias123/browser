@@ -82,8 +82,25 @@ class History extends Component {
            newHistoryList:initialHistoryList
            }
 
+    deleteHistory = (id) => {
+      const newHistoryList = this.state
+      const consistedHistory =
+        newHistoryList.filter((each) => (each.id)!==id)
+      
+      this.setState({newHistoryList:consistedHistory})
+    }
+
+    
+    onChangeSearchInput = (event)=> {
+      this.setState({searchInput: event.target.value})
+    }
+
     render() {
         const {searchInput, newHistoryList} = this.state
+
+        const filteredData = newHistoryList.filter(each => 
+        each.title.toLowerCase().includes(searchInput.toLowerCase())) 
+
         return (
             <div className="bg-container">
                 <div className="navbar">
@@ -93,21 +110,26 @@ class History extends Component {
                      alt="app logo"/>
                     <div className="search-container">
                         <div className="search-logo-container">
-                            <img 
+                            <img
                                 className="search-logo"
-                                src="https://assets.ccbp.in/frontend/react-js/search-img.png" 
+                                src="https://assets.ccbp.in/frontend/react-js/search-img.png"
                                 alt="search"/>
                         </div>
-                       <div >
-                          <input className="search-input" placeholder="Search History"/> 
-                       </div>
+                    
+                          <input 
+                          type="search" 
+                          value="searchInput" 
+                          className="search-input" 
+                          onChange={this.onChangeSearchInput}
+                          placeholder="Search History"/> 
+                       
                     </div>
                 </div>
                 <div className="bot-cont">
                     <ul className="historyItems-container">
                       {
-                          newHistoryList.map((each) =>(
-                          <HistoryItem details={each} key={each.id} />
+                          filteredData.map((each) =>(
+                          <HistoryItem details={each} key={each.id} deleteHistory={this.deleteHistory}/>
                       ))}
                    </ul>
                 </div>
