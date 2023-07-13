@@ -103,12 +103,15 @@ class History extends Component {
                        </div>
                     </div>
                 </div>
-                <ul className="historyItems-container">
-                    {
-                        newHistoryList.map((each) =>(
-                        <HistoryItem details={each} key={each.id} />
-                    ))}
-                </ul>
+                <div className="bot-cont">
+                    <ul className="historyItems-container">
+                      {
+                          newHistoryList.map((each) =>(
+                          <HistoryItem details={each} key={each.id} />
+                      ))}
+                   </ul>
+                </div>
+                
             </div>
         )
     }

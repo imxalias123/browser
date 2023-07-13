@@ -9,15 +9,17 @@ const HistoryItem = (props) => {
                 <div className="">
                    <p className="time">{timeAccessed}</p> 
                 </div>
-                <div className="">
-                    <img src={logoUrl} alt="" className="logo"/>
-                    <div className="">
-                        <p>{title}</p> 
-                        <p>{domainUrl}</p>
-                    </div>
+                <div className="except-time">
+                  
+                        <img src={logoUrl} alt="domain logo" className="logo"/>
+                        <div>
+                            <p className='title'>{title}</p> 
+                            <p className="domainUrl">{domainUrl}</p>
+                        </div>
+                
                     <button className="button">
                         <img  src="https://assets.ccbp.in/frontend/react-js/delete-img.png" 
-                        alt="delete" className=" delete"/>
+                        alt="delete" className="delete"/>
                     </button>
                 </div>
             </div>
